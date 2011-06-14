@@ -9,16 +9,16 @@ data loading/storing, widget integration and much more!
 Basic Syntax:
 -------------
 
-  use Avenger title => 'My Awesome Game';
+    use Avenger title => 'My Awesome Game';
 
-  my $rect = rect( 10, 10, 100, 100 );
+    my $rect = rect( 10, 10, 100, 100 );
 
-  show {
-      app->draw_rect( $rect );
-      app->update;
-  };
+    show {
+        app->draw_rect( $rect );
+        app->update;
+    };
 
-  start;
+    start;
 
 
 This is still pretty alpha, and the whole API is subject to change.
