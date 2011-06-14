@@ -1,7 +1,7 @@
 Avenger
 =======
 
-Avenger is a simple and powerful framework for SDL games development.
+Avenger aims to be a simple and powerful framework for SDL game development.
 It is something of a redesign of SDLx::App with a simpler interface
 and more features, such as level dispatching, integrated physics (Box2D),
 data loading/storing, widget integration and much more!
