@@ -1,4 +1,5 @@
 package Avenger;
+# ABSTRACT: Simple and powerful game framework
 use SDL;
 use SDLx::App;
 use SDL::Rect;
