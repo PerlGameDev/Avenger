@@ -38,7 +38,7 @@ sub event {
         return sub {
             my $event = shift;
             if ($event->type == $key_events{$name}) {
-                $sub->( SDL::Events::get_key_name($event->key_sym, $event) );
+                $sub->( SDL::Events::get_key_name($event->key_sym), $event );
             }
         };
     }
