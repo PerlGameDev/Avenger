@@ -224,4 +224,15 @@ Your function will receive the current x and y position of the mouse,
 and an x/y position relative to the previous mouse position. As usual,
 the last element is the event object itself.
 
+=head2 rect
 
+  my $rect = rect( $x, $y, $w, $h );
+
+Convenience function that returns an SDL::Rect object.
+
+=head2 mouse
+
+ my ($x, $y) = mouse;
+
+Convenience function that returns the current x/y position of the mouse
+on the screen.
