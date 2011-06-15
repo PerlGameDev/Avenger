@@ -76,4 +76,10 @@ sub event {
     }
 }
 
+sub mouse {
+    my ($mask, $x, $y) = @{ SDL::Events::get_mouse_state() };
+    return ($x, $y);
+};
+
+
 'all your base are belong to us';

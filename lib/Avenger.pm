@@ -61,6 +61,7 @@ sub import {
     *{"${caller}::move"}  = sub (&) { $app->add_move_handler(@_) };
     *{"${caller}::event"} = sub     { $app->add_event_handler( Avenger::Event::event(@_)) };
     *{"${caller}::rect"}  = sub { SDL::Rect->new(@_) };
+    *{"${caller}::mouse"} = \&Avenger::Event::mouse()
 }
 
 sub data {
