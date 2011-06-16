@@ -1,6 +1,5 @@
-use strict;
-use warnings;
-
+# Avenger apps already use
+# strict, warnings and new features!
 use Avenger title => 'Falling Platformer', delay => 10;
 
 my @bodies;
