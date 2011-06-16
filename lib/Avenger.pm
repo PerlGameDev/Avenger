@@ -5,11 +5,13 @@ use SDLx::App;
 use SDL::Rect;
 #use SDLx::Audio;
 use Avenger::Event;
+use Avenger::World;
 use File::ShareDir;
 use strict;
 use warnings;
 
 my $app;
+my $world;
 
 sub import {
     my $class = shift;
@@ -31,6 +33,10 @@ sub import {
             %properties
         );
         $app->stash->{_avenger}{BASE} = $caller;
+    }
+
+    unless ($world) {
+        $world = Avenger::World->new( app_h => $app->h );
     }
 
     my $start = sub {
@@ -65,7 +71,8 @@ sub import {
     *{"${caller}::move"}  = sub (&) { $app->add_move_handler(@_) };
     *{"${caller}::event"} = sub     { $app->add_event_handler( Avenger::Event::event(@_)) };
     *{"${caller}::rect"}  = sub { SDL::Rect->new(@_) };
-    *{"${caller}::mouse"} = \&Avenger::Event::mouse()
+    *{"${caller}::mouse"} = \&Avenger::Event::mouse;
+    *{"${caller}::world"} = sub {$world};
 }
 
 sub data {
