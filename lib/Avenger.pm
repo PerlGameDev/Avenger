@@ -30,6 +30,7 @@ sub import {
         $app = SDLx::App->new(
             eoq => 1,
             flags => SDL_DOUBLEBUF | SDL_HWSURFACE,
+			delay => 100, 
             %properties
         );
         $app->stash->{_avenger}{BASE} = $caller;

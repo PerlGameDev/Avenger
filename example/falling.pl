@@ -1,7 +1,8 @@
 use strict;
 use warnings;
 
-use Avenger title => 'Falling Platformer';
+use Avenger title => 'Falling Platformer', delay => 10;
+
 
 my @bodies;
 event 'key_down' => sub {
@@ -18,9 +19,14 @@ event 'mouse_left' => sub {
     push @walls, $wall;
 };
 
+move {
+
+	world->update;
+
+};
+
 my $app_rect = rect( 0, 0, app->w, app->h);
 show {
-    world->update;
     app->draw_rect( $app_rect, 0x0 );
 
     foreach my $wall (@walls) {

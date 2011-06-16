@@ -8,7 +8,7 @@ sub new {
     my ($class, %args) = @_;
     my $self = bless {}, $class;
 
-    my $gravity = Box2D::b2Vec2->new( @{ $args{gravity} || [0, -10] } );
+    my $gravity = Box2D::b2Vec2->new( @{ $args{gravity} || [0, -100] } );
     $self->{world} = Box2D::b2World->new( $gravity, 1 );
     $self->{app_h} = $args{app_h};
 
