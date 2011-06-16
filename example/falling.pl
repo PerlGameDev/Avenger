@@ -3,7 +3,6 @@ use warnings;
 
 use Avenger title => 'Falling Platformer', delay => 10;
 
-
 my @bodies;
 event 'key_down' => sub {
     my ($x, $y) = mouse;
@@ -19,11 +18,7 @@ event 'mouse_left' => sub {
     push @walls, $wall;
 };
 
-move {
-
-	world->update;
-
-};
+move { world->update };
 
 my $app_rect = rect( 0, 0, app->w, app->h);
 show {
