@@ -25,7 +25,11 @@ sub import {
     }
 
     unless ($app) {
-        $app = SDLx::App->new( eoq => 1, %properties );
+        $app = SDLx::App->new(
+            eoq => 1,
+            flags => SDL_DOUBLEBUF | SDL_HWSURFACE,
+            %properties
+        );
         $app->stash->{_avenger}{BASE} = $caller;
     }
 
