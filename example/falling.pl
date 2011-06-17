@@ -1,6 +1,6 @@
 # Avenger apps already use
 # strict, warnings and new features!
-use Avenger title => 'Falling Platformer', delay => 10;
+use Avenger title => 'Falling Platformer';
 
 world->gravity(0,-100);
 
