@@ -55,14 +55,15 @@ sub position {
     my ($self, @pos) = @_;
     my $body = $self->{_body};
 
-    my $pos = $body->GetPosition;
-    my ($x, $y) = ( $pos->x(), $pos->y() );
+    my $position = $body->GetPosition;
+    my ($x, $y) = ( $position->x(), $position->y() );
 
     if (@pos) {
         $x ||= $pos[0];
         $y ||= $pos[1];
+        my $angle = $body->GetAngle();
         my $vec = Box2D::b2Vec2->new($x,$y);
-        $body->SetTransform( $vec );
+        $body->SetTransform( $vec, $angle );
     }
     return ($x, $y);
 }
