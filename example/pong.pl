@@ -1,9 +1,9 @@
-use Avenger title => 'Pong!';
+use Avenger title => 'Pong!', dt => 0.1;
 
 my $background = rect( 0, 0, app->w, app->h );
 my $score = text();
 
-my $paddle_speed = 2;
+my $paddle_speed = 5.5;
 
 my $player1 = {
     paddle => rect( 10, app->h / 2, 10, 40 ),
@@ -19,8 +19,8 @@ my $player2 = {
 
 my $ball = {
     rect => rect( 0, 0, 10, 10 ),
-    v_x  => -2.7,
-    v_y  => 1.8,
+    v_x  => -6,
+    v_y  => 5,
 };
 
 # initialize positions
