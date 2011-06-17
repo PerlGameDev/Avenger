@@ -27,6 +27,10 @@ sub new {
 
     my $body = $world->CreateBody( $body_def );
 
+    if ($type eq 'bullet') {
+        $body->SetBullet(1);
+    }
+
     my $box = Box2D::b2PolygonShape->new;
     $box->SetAsBox( $half_w, $half_h );
 
