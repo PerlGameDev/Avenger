@@ -50,6 +50,16 @@ sub new {
 sub w { return $_[0]->{_width}  }
 sub h { return $_[0]->{_height} }
 
+sub awake {
+    my ($self, $awake) = @_;
+    if ($awake) {
+        $self->{_body}->SetAwake($awake);
+        return $awake;
+    }
+    else {
+        return $self->{_body}->IsAwake;
+    }
+}
 
 sub position {
     my ($self, @pos) = @_;
