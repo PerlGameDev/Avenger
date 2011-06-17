@@ -17,7 +17,7 @@ sub new {
 
 sub update {
     my ($self, $time_step, $velocity_i, $position_i) = @_;
-    $time_step  ||= 1.0/60.0;
+    $time_step  ||= 0.02; #1.0/60.0;
     $velocity_i ||= 6;
     $position_i ||= 3;
 
