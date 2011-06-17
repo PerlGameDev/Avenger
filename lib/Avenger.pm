@@ -46,7 +46,8 @@ sub import {
     my $start = sub {
         if ( my $state = shift ) {
             my $base = $app->stash->{_avenger}{BASE};
-            my $class = "$base::$state";
+
+            my $class = "$base\::$state";
             eval "require $class";
             if ($@) {
                 require Carp;
