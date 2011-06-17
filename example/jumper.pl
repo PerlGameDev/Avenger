@@ -31,10 +31,10 @@ event 'key_down' => sub {
     }
 
     if ( $keys->[SDLK_LEFT] ) {
-        $x = -200;
+        $x = -2000;
     }
     elsif ( $keys->[SDLK_RIGHT] ) {
-        $x = 200;
+        $x = 2000;
     }
 
     $jumper->velocity( $x, $y );
