@@ -8,8 +8,8 @@ use warnings;
 sub new {
     my ($class, $world, %args) = @_;
 
-    my $width    = $args{width}    || 20;
-    my $height   = $args{height}   || 20;
+    my $width    = $args{width}    || $args{w} || 20;
+    my $height   = $args{height}   || $args{h} || 20;
     my $x        = $args{x}        || 0;
     my $y        = $args{y}        || 0;
     my $type     = $args{type}     || 'static';
