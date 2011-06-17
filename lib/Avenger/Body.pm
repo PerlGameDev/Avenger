@@ -1,7 +1,7 @@
 package Avenger::Body;
 use Box2D;
 use SDL;
-use SDL::Rect;
+use SDLx::Rect;
 use strict;
 use warnings;
 
@@ -104,7 +104,7 @@ sub velocity {
 
 sub rect {
     my $pos = $_[0]->{_body}->GetPosition;
-    return SDL::Rect->new( $pos->x - $_[0]->{_half_w},
+    return SDLx::Rect->new( $pos->x - $_[0]->{_half_w},
                            $_[0]->{_app_h} - $pos->y - $_[0]->{_half_h},
                            $_[0]->{_width},
                            $_[0]->{_height}

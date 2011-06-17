@@ -3,6 +3,7 @@ package Avenger;
 use SDL;
 use SDLx::App;
 use SDL::Rect;
+use SDLx::Rect;
 #use SDLx::Audio;
 use Avenger::Event;
 use Avenger::World;
@@ -71,7 +72,7 @@ sub import {
     *{"${caller}::show"}  = sub (&) { $app->add_show_handler(@_) };
     *{"${caller}::move"}  = sub (&) { $app->add_move_handler(@_) };
     *{"${caller}::event"} = sub     { $app->add_event_handler( Avenger::Event::event(@_)) };
-    *{"${caller}::rect"}  = sub { SDL::Rect->new(@_) };
+    *{"${caller}::rect"}  = sub { SDLx::Rect->new(@_) };
     *{"${caller}::mouse"} = \&Avenger::Event::mouse;
     *{"${caller}::world"} = sub {$world};
 }
