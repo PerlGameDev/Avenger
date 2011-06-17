@@ -9,6 +9,7 @@ use SDLx::Text;
 use Avenger::Event;
 use Avenger::World;
 use File::ShareDir;
+use Class::Unload;
 use strict;
 use warnings;
 
