@@ -54,7 +54,7 @@ sub import {
                 Carp::croak "error loading $class: $@";
             }
             else {
-                $class->startup();
+                $class->startup() if $class->can('startup');
             }
         }
         $app->run;
