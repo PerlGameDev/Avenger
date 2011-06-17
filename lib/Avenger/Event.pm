@@ -29,8 +29,9 @@ my %mouse_motion = (
 );
 
 sub event {
-    my ($name, $sub) = @_;
+    return $_[0] if @_ == 1;
 
+    my ($name, $sub) = @_;
 
     # in key events we pass the key
     # name: 'left', 'up', 'a', '4', etc.
