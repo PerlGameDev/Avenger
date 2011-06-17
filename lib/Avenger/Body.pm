@@ -78,6 +78,16 @@ sub x {
     return $pos->x;
 }
 
+sub velocity {
+    my ($self, @vel) = @_;
+    if (@vel) {
+        my $vel = Box2D::b2Vec2->new(@vel);
+        $self->{_body}->SetLinearVelocity($vel);
+    }
+    my $velocity = $self->{_body}->GetLinearVelocity();
+    return ($velocity->x, $velocity->y);
+}
+
 sub rect {
     my $self = shift;
     my $pos = $self->{_body}->GetPosition;
