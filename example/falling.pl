@@ -2,10 +2,20 @@
 # strict, warnings and new features!
 use Avenger title => 'Falling Platformer';
 
-world->gravity(0,-100);
+my $gravity = -100;
+world->gravity(0,$gravity);
 
 my @bodies;
 event 'key_down' => sub {
+    my $key = shift;
+    if ($key eq 'space') {
+        $gravity *= -1;
+        world->gravity(0,$gravity);
+        foreach my $body (@bodies) {
+            $body->awake(1);
+        }
+        return;
+    }
     my ($x, $y) = mouse;
     my $body = world->create_body( x => $x, y => app->h - $y, type => 'dynamic' );
     push @bodies, $body;
