@@ -4,6 +4,7 @@ use SDL;
 use SDLx::App;
 use SDL::Rect;
 use SDLx::Rect;
+use SDLx::Text;
 #use SDLx::Audio;
 use Avenger::Event;
 use Avenger::World;
@@ -75,6 +76,7 @@ sub import {
     *{"${caller}::rect"}  = sub { SDLx::Rect->new(@_) };
     *{"${caller}::mouse"} = \&Avenger::Event::mouse;
     *{"${caller}::world"} = sub {$world};
+    *{"${caller}::text"}  = sub { SDLx::Text->new(@_) };
 }
 
 sub data {
