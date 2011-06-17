@@ -99,13 +99,11 @@ sub velocity {
 }
 
 sub rect {
-    my $self = shift;
-    my $pos = $self->{_body}->GetPosition;
-    my ($x, $y) = ($pos->x(), $pos->y() );
-    return SDL::Rect->new( $x - $self->{_half_w},
-                           $self->{_app_h} - $y - $self->{_half_h},
-                           $self->{_width},
-                           $self->{_height}
+    my $pos = $_[0]->{_body}->GetPosition;
+    return SDL::Rect->new( $pos->x - $_[0]->{_half_w},
+                           $_[0]->{_app_h} - $pos->y - $_[0]->{_half_h},
+                           $_[0]->{_width},
+                           $_[0]->{_height}
     );
 }
 
