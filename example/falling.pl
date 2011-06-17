@@ -2,6 +2,8 @@
 # strict, warnings and new features!
 use Avenger title => 'Falling Platformer', delay => 10;
 
+world->gravity(0,-100);
+
 my @bodies;
 event 'key_down' => sub {
     my ($x, $y) = mouse;
