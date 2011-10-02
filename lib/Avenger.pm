@@ -74,7 +74,7 @@ sub import {
     *{"${caller}::start"} = $start;
     *{"${caller}::load"}  = $load;
     *{"${caller}::show"}  = sub (&) { $app->add_show_handler(@_) };
-    *{"${caller}::move"}  = sub (&) { $app->add_move_handler(@_) };
+    *{"${caller}::update"}= sub (&) { $app->add_move_handler(@_) };
     *{"${caller}::event"} = sub     { $app->add_event_handler( Avenger::Event::event(@_)) };
     *{"${caller}::rect"}  = sub { SDLx::Rect->new(@_) };
     *{"${caller}::mouse"} = \&Avenger::Event::mouse;
@@ -98,7 +98,7 @@ Simple one-file game:
 
   use Avenger title => 'My Awesome Game!';
 
-  move {
+  update {
   };
 
   show {
@@ -114,9 +114,9 @@ Or a more structured approach:
   package MyGame::MainScreen;
   use Avenger;
 
-  move { ... };
-  move { ... };
-  show { ... };
+  update { ... };
+  update { ... };
+  show   { ... };
 
   1;
 
@@ -132,11 +132,15 @@ Or a more structured approach:
 
 =head1 DESCRIPTION
 
-Avenger is a simple and powerful framework for SDL games development.
+Avenger is a simple and powerful framework for SDL game development.
 It is something of a redesign of SDLx::App with a simpler interface
 and more features, such as level dispatching, integrated physics (Box2D),
 data loading/storing, widget integration and much more!
 
+Avenger borrows features from some of the most popular game frameworks
+out there, including Microsoft's XNA and Flixel. It aims to be very
+easy to learn and provide all the building blocks that will enable you
+to quickly make your game ideas turn to life.
 
 =head1 FUNCTIONS
 
@@ -163,7 +167,7 @@ setup was made. At this point, Avenger takes over for you.
 Unloads your current screen and loads the next one. If your base game
 package is called 'MyGame', it will try to load 'MyGame::ScreenName'.
 
-=head2 move { ... };
+=head2 update { ... };
 
 Creates a new (SDLx::App) motion handler.
 
