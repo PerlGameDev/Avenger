@@ -8,7 +8,7 @@ sub import {
     no strict 'refs';
     *{"${caller}::menu"} = sub (&;$) {
         my ($sub, $options) = @_;
-        my %menu_items = $sub->(); use DDP; p %menu_items;
+        my %menu_items = $sub->();
 
         my $menu = SDLx::Widget::Menu->new( $options || {} )->items( %menu_items );
 
