@@ -39,7 +39,9 @@ sub new {
 
     $fixture->density($density) if $density;
     $fixture->friction($friction);
-    $body->CreateFixtureDef( $fixture );
+    my $fix = $body->CreateFixtureDef( $fixture );
+
+    $fix->SetUserData( { parent => $self } );
 
     return bless {
         _width  => $width,
@@ -47,7 +49,7 @@ sub new {
         _half_w => $half_w,
         _half_h => $half_h,
         _app_h  => $args{app_h},
-        _base => { body => $body, fixture =>$fixture }
+        _base => { body => $body, fixture => $fix }
 
     }, $class;
 }
