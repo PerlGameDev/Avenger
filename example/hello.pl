@@ -15,7 +15,7 @@ event 'key_up' => sub {
     $state = '' if $state eq shift;
 };
 
-move {
+update {
     if ($state eq 'left') {
         $rect->x( $rect->x - $speed );
     }
