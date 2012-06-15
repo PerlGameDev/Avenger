@@ -42,17 +42,20 @@ sub new {
     $body->CreateFixtureDef( $fixture );
 
     return bless {
-        _body   => $body,
         _width  => $width,
         _height => $height,
         _half_w => $half_w,
         _half_h => $half_h,
         _app_h  => $args{app_h},
+        _base => { body => $body, fixture =>$fixture }
+
     }, $class;
 }
 
 sub w { return $_[0]->{_width}  }
 sub h { return $_[0]->{_height} }
+
+sub base { return $_[0]->{_base} }
 
 sub awake {
     my ($self, $awake) = @_;
