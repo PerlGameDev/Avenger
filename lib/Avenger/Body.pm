@@ -41,23 +41,25 @@ sub new {
     $fixture->friction($friction);
     my $fix = $body->CreateFixtureDef( $fixture );
 
-    $fix->SetUserData( { parent => $self } );
 
-    return bless {
+    my $self = bless {
+        _body   => $body,
         _width  => $width,
         _height => $height,
         _half_w => $half_w,
         _half_h => $half_h,
         _app_h  => $args{app_h},
-        _base => { body => $body, fixture => $fix }
-
+        _fixture => $fix
     }, $class;
+    $fix->SetUserData( { parent => $self } );
+
+    return $self; 
 }
 
 sub w { return $_[0]->{_width}  }
 sub h { return $_[0]->{_height} }
 
-sub base { return $_[0]->{_base} }
+sub base { return { $_[0]->{_body}, $_[0]->{_fix} } }
 
 sub awake {
     my ($self, $awake) = @_;
