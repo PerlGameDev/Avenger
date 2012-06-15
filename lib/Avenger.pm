@@ -13,6 +13,8 @@ use Class::Unload;
 use strict;
 use warnings;
 
+use Avenger::ContactListener;
+
 my $app;
 my $world;
 
@@ -42,7 +44,7 @@ sub import {
 
     unless ($world) {
         $world = Avenger::World->new( app_h => $app->h );
-    }
+      }
 
     my $start = sub {
         if ( my $state = shift ) {
@@ -58,7 +60,13 @@ sub import {
                 $class->startup(@_) if $class->can('startup');
             }
         }
+
+      my $listener = Avenger::ContactListener->new();
+        $world->{world}->SetContactListener( $listener );
         $app->run;
+
+
+
     };
 
     my $load = sub {

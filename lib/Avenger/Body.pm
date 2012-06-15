@@ -15,6 +15,7 @@ sub new {
     my $type     = $args{type}     || 'static';
     my $density;
     my $friction = $args{friction} || 0.3;
+    my $collided = $args{collided} || sub { }; 
     my $half_w   = $width  / 2;
     my $half_h   = $height / 2;
     
@@ -49,7 +50,8 @@ sub new {
         _half_w => $half_w,
         _half_h => $half_h,
         _app_h  => $args{app_h},
-        _fixture => $fix
+        _fixture => $fix,
+        _collided => $collided
     }, $class;
     $fix->SetUserData( { parent => $self } );
 
@@ -116,6 +118,12 @@ sub rect {
                            $_[0]->{_width},
                            $_[0]->{_height}
     );
+}
+
+sub collided {
+    my $self = shift;
+    $self->{_collided}->( @_ ); 
+
 }
 
 'all your base are belong to us';
