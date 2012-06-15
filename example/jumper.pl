@@ -18,7 +18,7 @@ my $floor =
 
 my $app_rect = rect( 0, 0, app->w, app->h );
 
-move { world->update; };
+update { world->update; };
 
 event 'key_down' => sub {
     my $key  = shift;

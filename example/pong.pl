@@ -62,7 +62,7 @@ event 'key_up' => sub {
 };
 
 # player paddle movement
-move {
+update {
     my ( $step, $app ) = @_;
     my $paddle = $player1->{paddle};
 
@@ -70,7 +70,7 @@ move {
 };
 
 # AI paddle movement
-move {
+update {
     my ( $step, $app ) = @_;
     my $paddle = $player2->{paddle};
     my $v_y = $player2->{v_y};
@@ -89,7 +89,7 @@ move {
 };
 
 # ball movement
-move {
+update {
     my $step = shift;
     my $ball_rect = $ball->{rect};
 

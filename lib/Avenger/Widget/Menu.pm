@@ -6,7 +6,7 @@ sub import {
     my $caller = caller;
 
     no strict 'refs';
-    *{"${caller}::menu"} = sub (&) {
+    *{"${caller}::menu"} = sub (&;$) {
         my ($sub, $options) = @_;
         my %menu_items = $sub->(); use DDP; p %menu_items;
 

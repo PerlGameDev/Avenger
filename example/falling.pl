@@ -29,7 +29,7 @@ event 'mouse_left' => sub {
     push @walls, $wall;
 };
 
-move { world->update };
+update { world->update };
 
 my $app_rect = rect( 0, 0, app->w, app->h);
 show {
