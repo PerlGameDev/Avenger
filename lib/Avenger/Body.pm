@@ -130,9 +130,7 @@ sub rect {
 }
 
 sub collided {
-    my $self = shift;
-    $self->{_collided}->(@_);
-
+    $_[0]->{_collided};
 }
 
 'all your base are belong to us';
