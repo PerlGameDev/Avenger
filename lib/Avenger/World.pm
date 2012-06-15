@@ -40,4 +40,28 @@ sub create_body {
     return $body;
 }
 
+sub create_dynamic {
+    my ($self, %args) = @_;
+
+    my $body = Avenger::Body->new(
+         $self->{world},
+         app_h => $self->{app_h},
+         %args,
+         type  => 'dynamic',
+    );
+    return $body;
+}
+
+sub create_static {
+    my ($self, %args) = @_;
+
+    my $body = Avenger::Body->new(
+         $self->{world},
+         app_h => $self->{app_h},
+         %args,
+         type  => 'static',
+    );
+    return $body;
+}
+
 'all your base are belong to us';
