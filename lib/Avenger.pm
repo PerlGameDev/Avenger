@@ -55,18 +55,16 @@ sub import {
                 Carp::croak "error loading $class: $@";
             }
             else {
-                $class->startup() if $class->can('startup');
+                $class->startup(@_) if $class->can('startup');
             }
         }
         $app->run;
     };
 
     my $load = sub {
-        my $state = shift;
-
         $app->remove_all_handlers;
         Class::Unload->unload($caller);
-        $start->($state);
+        $start->(@_);
     };
 
     no strict 'refs';
