@@ -1,5 +1,6 @@
 Avenger
 =======
+![Logo](https://raw.github.com/PerlGameDev/Avenger/master/avenger_logo.jpg "Avenger Logo")
 
 Avenger aims to be a simple and powerful framework for SDL game development.
 It is something of a redesign of SDLx::App with a simpler interface
