@@ -19,8 +19,8 @@ sub new {
 
     $collided->{begin} = sub { }
       unless $collided->{being};
-    $collided->{begin} = sub { }
-      unless $collided->{being};
+    $collided->{end} = sub { }
+      unless $collided->{end};
     $collided->{presolve} = sub { }
       unless $collided->{presolve};
     $collided->{postsolve} = sub { }
