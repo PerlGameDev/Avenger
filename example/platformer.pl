@@ -19,11 +19,11 @@ update { world->update };
 
 event 'key_down' => sub {
     my ($x, $y);
-    given (my $key = shift) {
+    for (my $key = shift) {
         when ('up')    { $y = 200  };
         when ('left')  { $x = -200 };
         when ('right') { $x = 200  };
-    };
+    }
     $jumper->velocity( $x, $y );
 };
 
